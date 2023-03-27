@@ -25,5 +25,17 @@
         box.textContent = data.data[1].firstname;
       }); */
     /* https://cats.petiteweb.dev/api/single/KIM_DG833/show */
+
+    const box = document.querySelector(".box");
+    const link = "https://cats.petiteweb.dev/api/single/KIM_DG833/show/1";
+    fetch(link)
+      .then((data) => {
+        return data.json();
+      })
+      .then((data) => {
+        console.log(data);
+        box.innerHTML = "<img width=250 src= " + data.image + ">";
+      });
+    /* https://cats.petiteweb.dev/api/single/KIM_DG833/show */
   </script>
 </html>
