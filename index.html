@@ -8,7 +8,7 @@
     <title>второе занятие</title>
   </head>
   <body>
-    <div class="box"></div>
+    <div class="box"><div class="description"></div></div>
   </body>
   <!-- <script src="script.js"></script> -->
   <script>
@@ -27,6 +27,7 @@
     /* https://cats.petiteweb.dev/api/single/KIM_DG833/show */
 
     const box = document.querySelector(".box");
+
     const link = "https://cats.petiteweb.dev/api/single/KIM_DG833/show/1";
     fetch(link)
       .then((data) => {
@@ -34,7 +35,13 @@
       })
       .then((data) => {
         console.log(data);
-        box.innerHTML = "<img width=250 src= " + data.image + ">";
+        box.innerHTML =
+          "<img width=250 src= " +
+          data.image +
+          ">" +
+          "<p>" +
+          data.description +
+          "</p>";
       });
     /* https://cats.petiteweb.dev/api/single/KIM_DG833/show */
   </script>
