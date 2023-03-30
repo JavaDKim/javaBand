@@ -88,9 +88,12 @@ function createCat(myCat, el = box) {
 
 function deleteCard(idCat, card) {
   if (idCat) {
-    fetch(`${path}/delete/${idCat}`, { method: "delete" }).then((res) => {
+    /*     fetch(`${path}/delete/${idCat}`, { method: "delete" }).then((res) => {
       console.log(res.status);
-    });
+    }); */
+    alert(
+      "Заблокировано дабы сохранить БД, а код такой fetch(`${path}/delete/${idCat}`, { method: `delete` })"
+    );
   }
 }
 function addCat(myCat) {
