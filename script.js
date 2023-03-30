@@ -49,6 +49,8 @@ fetch(path + "/show")
 function createCat(myCat, el = box) {
   const card = document.createElement("div");
   card.className = "card";
+  const pic = document.createElement("div");
+  pic.className = "pic";
   const name = document.createElement("h3");
   name.innerText = myCat.name;
   const like = document.createElement("i");
@@ -70,11 +72,11 @@ function createCat(myCat, el = box) {
     }
   });
   if (!myCat.image) {
-    card.classList.add("default");
+    pic.classList.add("default");
   } else {
-    card.style.backgroundImage = `url(${myCat.image})`;
+    pic.style.backgroundImage = `url(${myCat.image})`;
   }
-  card.append(like, name);
+  card.append(pic, like, name);
   if (myCat.age >= 0) {
     const age = document.createElement("span");
     age.innerText = myCat.age;
