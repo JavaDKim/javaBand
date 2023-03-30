@@ -32,13 +32,8 @@ h3 {
 }
 .default {
   background-image: url(/img/404.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: top;
+  background-size: contain;
+  justify-content: start;
 }
 .card::before {
   content: "";
