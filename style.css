@@ -38,7 +38,7 @@ h3 {
   background-size: cover;
 }
 .card .default {
-  background: url(../img/404.png);
+  background: url("https://i.yapx.ru/V1SWA.png");
   background-size: contain;
 }
 .card__like {
