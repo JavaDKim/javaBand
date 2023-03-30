@@ -30,7 +30,7 @@ fetch(path + "/ids")
   .then((data) => {
     console.log(data);
     ids = [...data];
-    myCat1.id = ids[ids.length - 1] + 1;
+    myCat1.id = ids.length ? ids[ids.length - 1] + 1 : 1;
     //addCat(myCat1);
   });
 
@@ -54,6 +54,21 @@ function createCat(myCat, el = box) {
   const like = document.createElement("i");
   like.className = "fa-heart card__like";
   like.classList.add(myCat.favorite ? "fa-solid" : "fa-regular");
+  like.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (myCat.id) {
+      fetch(`${path}/update/${myCat.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ favorite: !myCat.favorite }),
+      }).then((res) => {
+        if (res.status === 200) {
+          like.classList.toggle("fa-solid");
+          like.classList.toggle("fa-regular");
+        }
+      });
+    }
+  });
   if (!myCat.image) {
     card.classList.add("default");
   } else {
