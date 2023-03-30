@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>второе занятие</title>
+  </head>
+  <body>
+    <container class="cats">
+      <div class="box"></div>
+      <div class="box2"></div>
+    </container>
+  </body>
+  <!-- <script src="script.js"></script> -->
+  <script>
+    /*     const box = document.querySelector(".box");
+    const link = "https://fakerapi.it/api/v1/persons?_quantity=9&_locale=ru_RU";
+    fetch(link)
+      .then((data) => {
+        console.log(data);
+        return data.json();
+      })
+      .then((data) => {
+        console.log(data);
+
+        box.textContent = data.data[1].firstname;
+      }); */
+    /* https://cats.petiteweb.dev/api/single/KIM_DG833/show */
+
+    const box = document.querySelector(".box");
+    const link = "https://cats.petiteweb.dev/api/single/KIM_DG833/show/1";
+    fetch(link)
+      .then((data) => {
+        return data.json();
+      })
+      .then((data) => {
+        console.log(data);
+        box.innerHTML =
+          "<img width=250 src= " +
+          data.image +
+          ">" +
+          "<p>" +
+          data.description +
+          "</p>";
+      });
+
+    const box2 = document.querySelector(".box2");
+    const link2 = "https://cats.petiteweb.dev/api/single/KIM_DG833/show/2";
+    fetch(link2)
+      .then((data2) => {
+        return data2.json();
+      })
+      .then((data2) => {
+        console.log(data2);
+        box2.innerHTML =
+          "<img width=250 src= " +
+          data2.image +
+          ">" +
+          "<p>" +
+          data2.description +
+          "</p>";
+      });
+
+    /* https://cats.petiteweb.dev/api/single/KIM_DG833/show */
+  </script>
+</html>
