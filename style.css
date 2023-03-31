@@ -60,3 +60,10 @@ h3 {
   background-color: #2f000060;
 }
  */
+@media (max-width: 720px) {
+  .container {
+    max-width: 720px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
