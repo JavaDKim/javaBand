@@ -49,6 +49,61 @@ h3 {
   cursor: pointer;
   font-size: 35px;
 }
+.btn {
+  outline: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(11, 178, 255);
+  color: aliceblue;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.btn:hover {
+  color: rgba(135, 251, 255, 0.83);
+  /* transform: scale(1.05, 1.05); */
+  z-index: 12;
+}
+.add {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 11;
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.modal-block {
+  background-color: rgba(62, 62, 62, 0.8);
+  backdrop-filter: blur(2px);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.modal-block.active {
+  display: flex;
+}
+.modal {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  width: calc(100% - 100px);
+  max-width: 500px;
+  max-height: calc(100% - 100px);
+  overflow: auto;
+  position: relative;
+}
 
 /* .pic::before {
   content: "";
@@ -60,6 +115,96 @@ h3 {
   background-color: #2f000060;
 }
  */
+
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) auto;
+  gap: 18px;
+  overflow: auto;
+}
+.form-line {
+  display: grid;
+  gap: 6px;
+}
+
+.form-span-2 {
+  grid-column-end: span 2;
+}
+.form-span-3 {
+  grid-column-end: span 3;
+}
+.preview {
+  background-color: rgb(225, 180, 239);
+  height: 320px;
+  width: auto;
+  border-radius: 6px;
+  background-image: url("https://i.yapx.ru/V1SWA.png");
+  background-position: center;
+  background-size: contain;
+}
+input,
+textarea {
+  outline: none;
+  border: 1px solid rgb(11, 178, 255);
+  padding: 6px 8px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  width: 100%;
+  font: inherit;
+}
+input:focus,
+textarea:focus {
+  border-color: rgb(247, 30, 215);
+}
+textarea {
+  resize: vertical;
+}
+label {
+  cursor: pointer;
+  user-select: none;
+}
+[type="checkbox"] {
+  visibility: hidden;
+}
+[type="checkbox"] + label {
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+[type="checkbox"] + label:before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f004";
+  display: flex;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid rgb(11, 178, 255);
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: -30px;
+}
+[type="checkbox"]:checked + label:before {
+  color: rgb(247, 30, 215);
+  font-weight: 900;
+}
+.saveBtn {
+  border-radius: 6px;
+  width: 120px;
+  display: flex;
+  justify-content: left;
+  text-align: center;
+}
+.saveBtn i {
+  margin-top: 4px;
+}
+.saveBtn span {
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
 @media (max-width: 720px) {
   .container {
     max-width: 720px;
