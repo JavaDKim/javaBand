@@ -23,7 +23,6 @@ mdBox.addEventListener("click", (e) => {
 });
 addForm.elements.image.addEventListener("change", (e) => {
   e.preventDefault();
-  const prevTag = addForm.querySelector(".preview");
   prevTag.style.backgroundImage = `url(${e.currentTarget.value})`;
 });
 addForm.addEventListener("submit", (e) => {
