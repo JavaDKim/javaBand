@@ -61,10 +61,11 @@ h3 {
   cursor: pointer;
 }
 .btn:hover {
-  color: rgba(135, 251, 255, 0.83);
+  color: rgba(255, 40, 223, 0.83);
   /* transform: scale(1.05, 1.05); */
   z-index: 12;
 }
+
 .add {
   position: fixed;
   bottom: 20px;
@@ -163,36 +164,10 @@ label {
   cursor: pointer;
   user-select: none;
 }
-[type="checkbox"] {
-  visibility: hidden;
-}
-[type="checkbox"] + label {
-  position: relative;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
 
-[type="checkbox"] + label:before {
-  font-family: "Font Awesome 6 Free";
-  content: "\f004";
-  display: flex;
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-  border: 1px solid rgb(11, 178, 255);
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  top: -30px;
-}
-[type="checkbox"]:checked + label:before {
-  color: rgb(247, 30, 215);
-  font-weight: 900;
-}
 .saveBtn {
   border-radius: 6px;
-  width: 120px;
+  width: 140px;
   display: flex;
   justify-content: left;
   text-align: center;
@@ -202,7 +177,18 @@ label {
 }
 .saveBtn span {
   margin-top: 4px;
-  margin-left: 4px;
+  margin-left: 8px;
+}
+.btnDelete {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 250, 250);
+  color: purple;
+  font-size: 12px;
+  text-align: center;
 }
 
 @media (max-width: 720px) {
@@ -210,5 +196,15 @@ label {
     max-width: 720px;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+  }
+}
+@media (max-width: 520px) {
+  .container {
+    max-width: 520px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .preview {
+    height: 160px;
   }
 }

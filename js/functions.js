@@ -12,12 +12,31 @@ function showCats() {
       }
     });
 }
+
 function createCat(myCat, el = box) {
   const card = document.createElement("div");
+  const btnDelete = document.createElement("button");
+  btnDelete.className = "btnDelete";
+  btnDelete.classList.add("btn");
+  const iDelete = document.createElement("i");
+  iDelete.className = "fa-solid";
+  iDelete.classList.add("fa-xmark");
+  btnDelete.append(iDelete);
+  btnDelete.addEventListener("click", (e) => {
+    e.stopPropagation();
+    let isDelete = confirm(
+      `Уверены, что хотите удалить котика с именем ${myCat.name}?`
+    );
+    if (isDelete) {
+      deleteCat(myCat.id);
+    }
+  });
+
   card.className = "card";
   //слушатель клика для карточки с котиком, для вызова модального окна просмотра
   card.addEventListener("click", (e) => {
-    console.log(myCat.id);
+    createModelWindow(myCat, "Редактирование");
+    mdBox.classList.toggle("active");
   });
   const pic = document.createElement("div");
   pic.className = "pic";
@@ -27,6 +46,7 @@ function createCat(myCat, el = box) {
   like.className = "fa-heart card__like";
   like.classList.add(myCat.favorite ? "fa-solid" : "fa-regular");
   like.addEventListener("click", (e) => {
+    e.stopPropagation();
     // поставить лайк (сердечко, id котика, явяляется ли любимчиком true/false)
     setLike(like, myCat.id, !myCat.favorite); // (true => false; false => true)
   });
@@ -35,7 +55,7 @@ function createCat(myCat, el = box) {
   } else {
     pic.style.backgroundImage = `url(${myCat.image})`;
   }
-  card.append(pic, like, name);
+  card.append(pic, like, name, btnDelete);
   if (myCat.age >= 0) {
     const age = document.createElement("span");
     age.innerText = myCat.age;
@@ -55,13 +75,8 @@ function setLike(el, id, like) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ favorite: like }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-    });
+  }).then((res) => res.json());
 }
-
 /* function createCat(myCat, el = box) {
   const card = document.createElement("div");
   card.className = "card";
