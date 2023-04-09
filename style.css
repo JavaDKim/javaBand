@@ -197,7 +197,11 @@ label {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
+  .card__like {
+    font-size: 30px;
+  }
 }
+
 @media (max-width: 520px) {
   .container {
     max-width: 520px;
@@ -206,5 +210,8 @@ label {
   }
   .preview {
     height: 160px;
+  }
+  .card__like {
+    font-size: 25px;
   }
 }

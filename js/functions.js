@@ -56,10 +56,10 @@ function createCat(myCat, el = box) {
     pic.style.backgroundImage = `url(${myCat.image})`;
   }
   card.append(pic, like, name, btnDelete);
-  if (myCat.age >= 0) {
-    const age = document.createElement("span");
-    age.innerText = myCat.age;
-    card.append(age);
+  if (myCat.rate >= 0) {
+    const rate = document.createElement("span");
+    rate.innerText = `${myCat.age}`;
+    card.append(rate);
   }
   el.append(card);
 }
