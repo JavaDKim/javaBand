@@ -84,14 +84,15 @@ function createModelWindow(myCat = {}, headerM = "Добавить") {
   formLineModal5.append(labelModal5, inputModal5);
 
   const formLineModal6 = document.createElement("div");
-  formLineModal6.className = "form-line";
-  formLineModal6.classList.add("form-span-3");
+  formLineModal6.className = "form-span-2";
+  //formLineModal6.classList.add("form-span-2");
   const textAreaModal = document.createElement("textarea");
   textAreaModal.id = "add7";
   textAreaModal.type = "text";
   textAreaModal.name = "description";
+  textAreaModal.style = "margin-top: 10px";
   textAreaModal.placeholder = "Напишите что-нибудь про своего питомца";
-  textAreaModal.rows = "3";
+  textAreaModal.rows = "7";
   const labelModal6 = document.createElement("label");
   labelModal6.innerText = "Описание";
   labelModal6.setAttribute("for", textAreaModal.id);
@@ -111,14 +112,15 @@ function createModelWindow(myCat = {}, headerM = "Добавить") {
   spanSaveModal.innerText = headerM;
   saveBtnModal.append(iSaveModal, spanSaveModal);
   formLineModal7.append(saveBtnModal);
+
   formModal.append(
     previewModal,
+    formLineModal6,
     formLineModal1,
     formLineModal2,
     formLineModal3,
     formLineModal4,
     formLineModal5,
-    formLineModal6,
     formLineModal7
   );
   modal.append(btnModalClose, headerModal, formModal);
