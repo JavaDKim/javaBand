@@ -1,3 +1,4 @@
+// функция создание модального окна
 function createModelWindow(myCat = {}, headerM = "Добавить") {
   const modal = document.createElement("div");
   modal.className = "modal";

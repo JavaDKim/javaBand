@@ -1,19 +1,26 @@
-/* let myCat = {
-  name: "Трамп",
-  image: "https://i.yapx.ru/V1QBD.jpg",
-  favorite: true,
-}; */
-
-/* createCat(myCat);
-createCat(myCat1);
- */
 showCats(); //show all cats
 
 addBtn.addEventListener("click", (e) => {
+  // вызов функции создания модального окна с флагом добавить
   createModelWindow();
   mdBox.classList.toggle("active");
 });
-
+//функция показа всех котиков на главной странице
+function showCats() {
+  fetch(path + "/show")
+    .then(function (res) {
+      if (res.statusText === "OK") {
+        return res.json();
+      }
+    })
+    .then(function (data) {
+      for (const iterator of data) {
+        //вызов функции создания карточки котика
+        createCat(iterator, box);
+      }
+    });
+}
+//функция добавления котика
 function addCat(body) {
   let ids = [];
   fetch(path + "/ids")
@@ -33,6 +40,7 @@ function addCat(body) {
       });
     });
 }
+//функция удаления котика
 function deleteCat(idCat) {
   //card.stopP
   if (idCat) {
@@ -43,6 +51,7 @@ function deleteCat(idCat) {
     });
   }
 }
+//функция редактирования котика
 function modifyCat(catID, bodyCat) {
   console.log(catID);
 
@@ -55,4 +64,18 @@ function modifyCat(catID, bodyCat) {
       location.reload();
     }
   });
+}
+//функция установки лайка котика
+function setLike(el, id, like) {
+  el.classList.toggle("fa-solid");
+  el.classList.toggle("fa-regular");
+
+  fetch(path + "/update/" + id, {
+    method: "put",
+    // без headers на сервер прийдет undefined
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ favorite: like }),
+  }).then((res) => res.json());
 }
